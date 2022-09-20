@@ -1,16 +1,16 @@
 import { Routes, useNavigate } from 'react-router-dom';
 
-import { useMount } from 'utils/hooks';
+import { useMount, useQuery } from 'utils/hooks';
 import generateRoutes, { routes } from 'routes';
 
 const Layout = (): JSX.Element => {
+  const query = useQuery();
   const navigate = useNavigate();
 
-  const str = window.location.search;
-  const savedRoute = str.slice(str.indexOf('=') + 1);
-
   useMount(() => {
-    savedRoute && navigate(savedRoute);
+    const currentPage = query.get('currentPage');
+
+    currentPage && navigate(currentPage);
   });
 
   return <Routes>{generateRoutes(routes)}</Routes>;
