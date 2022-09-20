@@ -1,6 +1,6 @@
 import { Suspense, ExoticComponent } from 'react';
 
-const AsyncComponent =
+const asyncComponent =
   (Component: ExoticComponent, fallback?: string) => (props: Record<string, any>) =>
     (
       <Suspense fallback={fallback || ''}>
@@ -8,4 +8,4 @@ const AsyncComponent =
       </Suspense>
     );
 
-export default AsyncComponent;
+export default asyncComponent;
