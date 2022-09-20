@@ -2,21 +2,21 @@ import { lazy } from 'react';
 import { Route } from 'react-router-dom';
 
 import { IRoutesItem } from 'types';
-import asyncComponent from 'utils/hooks/asyncComponent';
+import { asyncComponent } from 'utils';
 
 export const routes: IRoutesItem[] = [
-  // {
-  //   path: '/',
-  //   component: AsyncComponent(lazy(() => import('pages/home'))),
-  // },
-  // {
-  //   path: '/secondPage',
-  //   component: AsyncComponent(lazy(() => import('pages/secondPage'))),
-  // },
-  // {
-  //   path: '/thirdPage',
-  //   component: AsyncComponent(lazy(() => import('pages/thirdPage'))),
-  // },
+  {
+    path: '/',
+    component: asyncComponent(lazy(() => import('pages/firstPage'))),
+  },
+  {
+    path: '/secondPage',
+    component: asyncComponent(lazy(() => import('pages/secondPage'))),
+  },
+  {
+    path: '/thirdPage',
+    component: asyncComponent(lazy(() => import('pages/thirdPage'))),
+  },
   {
     path: '*',
     component: asyncComponent(lazy(() => import('pages/notFound'))),
