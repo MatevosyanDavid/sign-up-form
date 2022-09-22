@@ -19,16 +19,21 @@ const StyledMenuItem = styled(MenuItem)({
   },
 });
 
+interface ISelectOptions {
+  value: string;
+  label: string;
+}
+
 interface ISelect {
   label: string;
   error: any;
   placeholder: string;
-  options: any[];
+  options: ISelectOptions[];
   fullWidth?: boolean;
   variant: 'standard' | 'outlined';
   name: string;
   control?: any;
-  sx?: any;
+  sx?: Record<string, any>;
   helperText?: any;
 }
 
