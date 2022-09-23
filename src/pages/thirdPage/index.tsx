@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import Button from 'components/button';
 import resolvers from 'configs/resolvers';
-import { getFromStorage } from 'utils/persist';
+import { getFromStorage, removeFromStorage, saveToStorage } from 'utils/persist';
 import Form from 'components/form';
 import Header from 'sections/header';
 import Input from 'components/input';
@@ -40,8 +40,8 @@ const ThirdPage = () => {
   });
 
   const onSubmit = (data: any) => {
-    localStorage.removeItem('thirdPageData');
-    localStorage.setItem('thirdPageData', JSON.stringify(data));
+    removeFromStorage('thirdPageData');
+    saveToStorage('thirdPageData', data);
     navigate('/thirdPage');
 
     console.log(

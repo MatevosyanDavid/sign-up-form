@@ -6,7 +6,7 @@ import Header from 'sections/header';
 import FormRadio from 'components/radio';
 import Button from 'components/button';
 import DatePicker from 'components/datePicker';
-import { getFromStorage } from 'utils/persist';
+import { getFromStorage, removeFromStorage, saveToStorage } from 'utils/persist';
 
 import useStyles from './styles';
 
@@ -24,8 +24,8 @@ const SecondPage = (): JSX.Element => {
   });
 
   const onSubmit = ({ gender = 'female', date }: any) => {
-    localStorage.removeItem('secondPageData');
-    localStorage.setItem('secondPageData', JSON.stringify({ gender: gender, date: date }));
+    removeFromStorage('secondPageData');
+    saveToStorage('secondPageData', { gender: gender, date: date });
     navigate('/thirdPage');
   };
 
